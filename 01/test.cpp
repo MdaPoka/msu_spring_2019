@@ -97,6 +97,9 @@ int count_prime_val(int* prime_arr, int l_bound, int r_bound) {
     int count = 0;
     int prime_idx = binary_search(prime_arr, prime_arr_size, l_bound);
     while(left_idx <= right_idx) {
+        if(prime_idx == prime_arr_size) {
+            break;
+        }
         if(Data[left_idx] == prime_arr[prime_idx]) {
             ++count;
             ++left_idx;
