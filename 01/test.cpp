@@ -40,6 +40,7 @@ int main(int argc, char** argv) {
         int r_bound = std::atoi(argv[i+1]);
         if(l_bound > r_bound){
             std::cout<<0<<std::endl;
+            delete[] prime_arr;
             return 0;
         }
         std::cout<<count_prime_val(prime_arr, l_bound, r_bound)<<std::endl;
