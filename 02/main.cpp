@@ -7,7 +7,7 @@ const std::basic_regex<char> add_sub("^(([-+]|--)?[^-+]+[-+])");
 const std::basic_regex<char> mul_div("^[^*/]+[*/]");
 const std::basic_regex<char> check("^[+*/]|[-+*/]$|[^-0-9+*/]|[-+*/][+*/]|[-+*/]{3,}|/0");
 
-int64_t calc(std::string str){
+int64_t calc(std::string &&str){
     std::smatch res;
     std::regex_search(str, res, add_sub);
     if(res.size()){
@@ -42,6 +42,6 @@ int main(int argc, char** argv) {
         std::cout<<"error";
         return 1;
     }
-    std::cout<<calc(str);
+    std::cout<<calc(std::move(str));
     return 0;
 }
