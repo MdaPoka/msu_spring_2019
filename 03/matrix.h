@@ -26,7 +26,7 @@ class row
         {
             throw std::out_of_range("");
         }
-        return contents[i];
+        return contents[i]; 
     }
     size_t getLen() const
     {
