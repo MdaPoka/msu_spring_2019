@@ -8,7 +8,7 @@
 #include <sstream>
 #include <cstdio>
 
-const int magic_numb = 4;
+const int magic_numb = 250000;
 
 auto read_numbers(std::ifstream &file, int amount){
     std::vector<int64_t> vec;
@@ -102,13 +102,13 @@ void partial_sort(std::ifstream &file, std::mutex &mtx, std::condition_variable 
 
 int main(int argc, char **argv)
 {
-    // char* filename = argv[1];
-    char filename[] = "hello";
-    std::ofstream mda(filename, std::ios::binary);
-    for(int64_t i = 26; i > 0; --i) {
-        mda.write((char*)(&i), sizeof(i));
-    }
-    mda.close();
+    char* filename = argv[1];
+    // char filename[] = "hello";
+    // std::ofstream mda(filename, std::ios::binary);
+    // for(int64_t i = 26; i > 0; --i) {
+    //     mda.write((char*)(&i), sizeof(i));
+    // }
+    // mda.close();
 
 
     std::ifstream file(filename, std::ios::binary);
