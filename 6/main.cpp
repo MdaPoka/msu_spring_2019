@@ -13,7 +13,7 @@ const int max_numbers_to_read = 250000;
 количество считываемых тредом чисел уменьшено вдвое */
 
 
-bool file_exist(std::string fileName)
+bool file_exist(const std::string &fileName)
 {
     std::ifstream infile(fileName);
     return infile.good();
@@ -32,7 +32,7 @@ auto read_numbers(std::ifstream &file, int amount){
     return vec;
 }
 
-void concat(std::string &file_name1, std::string &file_name2, std::string &result) {
+void concat(const std::string &file_name1, const std::string &file_name2, const std::string &result) {
     std::ifstream f1(file_name1, std::ios::binary);
     std::ifstream f2(file_name2, std::ios::binary);
     std::ofstream res(result, std::ios::binary);
@@ -102,7 +102,7 @@ void partial_sort(std::ifstream &file, std::mutex &mtx) {
 
 std::string get_part_name(std::thread::id id) {
     std::ostringstream ss;
-    ss<<id<<"_1";
+    ss << id << "_1";
     return ss.str();
 } //Возвращет имя файла, который оставил после себя поток.
 
